@@ -1,23 +1,20 @@
 (function(){
-  const calculatorScreen = document.querySelector(".calculator-screen");
-
+const calculatorScreen = document.querySelector(".calculator-screen");
+let currentNumber = "0";
+  
 const updateScreen = (number) => {
   calculatorScreen.value = number;
 };
 
-let prevNumber = '';
-let calculationOperator = '';
-let currentNumber = 0;
-
+const numbers = document.querySelectorAll(".number");
+  
 const inputNumber = (number) => {
-  if (currentNumber === 0){
+  if (currentNumber === "0"){
     currentNumber = number;
   }else{
     currentNumber += number;
   }
 };
-
-const numbers = document.querySelectorAll(".number");
 
 numbers.forEach((number) => {
   number.addEventListener("click", (event) => {
@@ -28,18 +25,23 @@ numbers.forEach((number) => {
 
 const operator = document.querySelectorAll(".operator");
 
+let prevNumber = "";
+let calculationOperator = "";
+
+const inputOperator = (operator) => {
+  if (calculationOperator === ""){
+  }
+  calculationOperator = operator;
+  currentNumber="0";
+};
+
+
 operator.forEach((operator) => {
   operator.addEventListener("click", (event) => {
     inputOperator(event.target.value);
   });
 });
 
-const inputOperator = (operator) => {
-  if (calculationOperator === ""){
-  }
-  calculationOperator = operator;
-  currentNumber=0;
-};
 
 const equalSign = document.querySelector(".equal-sign");
 
@@ -49,7 +51,10 @@ equalSign.addEventListener("click", () => {
 });
 
 const calculate = () => {
-  let result = '';
+  let result = "";
+  const prev = parseFloat(prevNumber);
+  const current = parseFloat(currentNumber);
+  if(isNaN(prev) || isNaN(current)) return;
   switch (calculationOperator) {
     case "+":
       result = parseFloat(prevNumber) + parseFloat(currentNumber);
@@ -69,7 +74,7 @@ const calculate = () => {
     default:
       return;
   }
-  currentNumber = result;
+  currentNumber = result.toString();
   calculationOperator = "";
 };
 
@@ -78,7 +83,7 @@ const clearBtn = document.querySelector(".all-clear");
 clearBtn.addEventListener("click", () => {
   prevNumber = "";
   calculationOperator = "";
-  currentNumber = "";
+  currentNumber = "0";
   updateScreen(currentNumber);
 });
 
