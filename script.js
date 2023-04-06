@@ -55,21 +55,22 @@ const calculate = () => {
   const prev = parseFloat(prevNumber);
   const current = parseFloat(currentNumber);
   if(isNaN(prev) || isNaN(current)) return;
+  
   switch (calculationOperator) {
     case "+":
       result = parseFloat(prevNumber) + parseFloat(currentNumber);
       break;
     case "-":
-      result = parseFloat(prevNumber) - parseFloat(currentNumber);
+      result = prev - current;
       break;
     case "*":
-      result = parseFloat(prevNumber) * parseFloat(currentNumber);
+      result = prev * current;
       break;
     case "/":
-      result = parseFloat(prevNumber) / parseFloat(currentNumber);
+      result = prev / current;
       break;
     case "%":
-      result = parseFloat(prevNumber) % parseFloat(currentNumber);
+      result =prev % current;
       break;
     default:
       return;
