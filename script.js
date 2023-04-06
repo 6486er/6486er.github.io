@@ -1,4 +1,5 @@
-const calculatorScreen = document.querySelector(".calculator-screen");
+(function(){
+  const calculatorScreen = document.querySelector(".calculator-screen");
 
 const updateScreen = (number) => {
   calculatorScreen.value = number;
@@ -94,3 +95,5 @@ decimal.addEventListener("click", (event) => {
   inputDecimal(event.target.value);
   updateScreen(currentNumber);
 });
+
+})();
