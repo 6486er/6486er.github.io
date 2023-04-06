@@ -7,10 +7,10 @@ const updateScreen = (number) => {
 
 let prevNumber = '';
 let calculationOperator = '';
-let currentNumber = '0';
+let currentNumber = 0;
 
 const inputNumber = (number) => {
-  if (currentNumber === '0'){
+  if (currentNumber === 0){
     currentNumber = number;
   }else{
     currentNumber += number;
@@ -38,7 +38,7 @@ const inputOperator = (operator) => {
   if (calculationOperator === ""){
   }
   calculationOperator = operator;
-  currentNumber='0';
+  currentNumber=0;
 };
 
 const equalSign = document.querySelector(".equal-sign");
@@ -49,7 +49,7 @@ equalSign.addEventListener("click", () => {
 });
 
 const calculate = () => {
-  let result = "";
+  let result = '';
   switch (calculationOperator) {
     case "+":
       result = parseFloat(prevNumber) + parseFloat(currentNumber);
