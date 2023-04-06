@@ -5,12 +5,12 @@ const updateScreen = (number) => {
   calculatorScreen.value = number;
 };
 
-let prevNumber = "";
-let calculationOperator = "";
-let currentNumber = "0";
+let prevNumber = '';
+let calculationOperator = '';
+let currentNumber = '0';
 
 const inputNumber = (number) => {
-  if (currentNumber === "0"){
+  if (currentNumber === '0'){
     currentNumber = number;
   }else{
     currentNumber += number;
@@ -38,7 +38,7 @@ const inputOperator = (operator) => {
   if (calculationOperator === ""){
   }
   calculationOperator = operator;
-  currentNumber="0";
+  currentNumber='0';
 };
 
 const equalSign = document.querySelector(".equal-sign");
